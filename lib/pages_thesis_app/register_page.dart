@@ -128,17 +128,30 @@ class _RegisterPageState extends State<RegisterPage> {
       child: const Text("Register"),
     );
 
-// ---------------------------> Back Button <---------------------------
-    final backButton = ElevatedButton(
-      onPressed: () async {
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil(loginPageRoute, (route) => false);
-      },
-      child: const Text('Back'),
-    );
+// // ---------------------------> Back Button <---------------------------
+//     final backButton = ElevatedButton(
+//       onPressed: () async {
+//         Navigator.of(context)
+//             .pushNamedAndRemoveUntil(loginPageRoute, (route) => false);
+//       },
+//       child: const Text('Back'),
+//     );
 
 // ---------------------------> Scaffold <---------------------------
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_sharp),
+          color: Colors.white,
+          onPressed: () async {
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil(loginPageRoute, (route) => false);
+          },
+        ),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -156,7 +169,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 inputEmail,
                 inputPassword,
                 registerButton,
-                backButton
+                // backButton
               ],
             ),
           ),

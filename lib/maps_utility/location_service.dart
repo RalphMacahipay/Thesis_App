@@ -3,11 +3,11 @@ import 'dart:convert' as convert;
 import 'dart:developer' as devtool show log;
 
 class LocationService {
-  final String key = 'AIzaSyBb3DrlDx8BLhXvsUI6BxJb3i-Wdvlaigo';
+  final String key = 'AIzaSyDtFREMfe5Q-vG_vwBmDX1W4qgQsXMOulA';
 
   Future<String> getPlaceId(String input) async {
     final String url =
-        'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=$input&inputtype=textquery&key=$key';
+        "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=$input&inputtype=textquery&key=$key";
 
     var response = await http.get(Uri.parse(url));
     var json = convert.jsonDecode(response.body);

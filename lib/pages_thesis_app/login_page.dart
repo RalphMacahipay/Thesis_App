@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, unused_local_variable
+// ignore_for_file: file_names, unused_local_variable, deprecated_member_use
 import 'package:accounts/image_code/images_code.dart';
 import 'package:accounts/routes/route_pages.dart';
 import 'package:accounts/services/auth/auth_exception.dart';
@@ -125,6 +125,12 @@ class _LoginPageState extends State<LoginPage> {
       textInputAction: TextInputAction.done,
     );
 
+// ---------------------------> Forgot Password Button <------------------
+    final forgotButton = FlatButton(
+      child: const Text("Button"),
+      onPressed: () {},
+    );
+
 // ---------------------------> Login Button <---------------------------
 
     final loginButton = ElevatedButton(
@@ -153,14 +159,18 @@ class _LoginPageState extends State<LoginPage> {
       },
       child: const Text("Login"),
     );
-
+// ---------------------------> Don't Have an aaccount (Text)<--------------
+    const noAccountText = Text("Not a member create an account ");
 // ---------------------------> Register Button <---------------------------
-    final registerButton = ElevatedButton(
+    final registerButton = TextButton(
       onPressed: () async {
         Navigator.of(context)
             .pushNamedAndRemoveUntil(registerPageRoute, (route) => false);
       },
-      child: const Text('Register'),
+      child: const Text(
+        'HERE',
+        style: TextStyle(color: Colors.white),
+      ),
     );
 // ---------------------------> Scaffold <---------------------------
     return Scaffold(
@@ -180,8 +190,14 @@ class _LoginPageState extends State<LoginPage> {
                 Image.asset(logo),
                 inputEmail,
                 inputPassword,
+                forgotButton,
                 loginButton,
-                registerButton,
+                Column(
+                  children: [
+                    noAccountText,
+                    registerButton,
+                  ],
+                ),
               ],
             ),
           ),

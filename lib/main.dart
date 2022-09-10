@@ -48,7 +48,7 @@ class _InitializerPageState extends State<InitializerPage> {
   Widget build(BuildContext context) {
     // Para ma store yung user (no need na mag login pag verified na ang email)
     return FutureBuilder(
-      // initializeApp (isang beses lang dapat gawin hindi per widget)
+      // initializeApp (isang beses lang dapat gawin hindi  per widget)
       future: AuthService.firebase().initialize(),
       builder: ((context, snapshot) {
         switch (snapshot.connectionState) {
